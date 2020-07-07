@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="J-QUERY/j-query.js"></script>
+<script>
+$(document).ready(function(){
+	@CrossOrigin (origins = “http: // localhost: 8383”)
+  $("button").click(function(){
+    $.ajax({
+    
+    	type: "GET",
+        url:
+        'http://localhost:8080/CategoryService/FindAll',
+        dataType: 'application/json',
+    	
+        success: function(result){
+        	<|-- Table HTML -->
+            var table = document.getElementBy("myTable");
+            $.each(result, function(i, obj){
+            	//use obj.id and obj.name here, for example:
+                alert(obj.name);
+                var row = table.insertRow(0);
+                var cell1 = table.insertCell(0);
+                var cell2 = table.insertCell(0);
+                var cell2 = table.insertCell(0);
+                cell1.innerHTML = obj.id;
+                cell2.innerHTML = obj.name;
+                cell3.innerHTML = obj.description;
+               });
+              }
+    }});
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
+</body>
+</html>
